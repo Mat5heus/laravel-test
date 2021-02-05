@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TesteController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource("products", ProductController::class);
 
+Route::get('/login', function() {
+    return 'Login';
+})->name('login');
 
 Route::get("/test", function () {
     return "<h1>I'm just testing some things</h1>";
